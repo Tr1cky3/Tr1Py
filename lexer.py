@@ -27,8 +27,8 @@ class Token(NamedTuple):
             (TokenType.NUMBER,     r'\b\d+\b'),
             (TokenType.COMP_OP,    r'==|<|>'),
             (TokenType.ASSIGN,     r'='),
-            (TokenType.LPAREN,     r'\b:\b'),
-            (TokenType.RPAREN,     r'\b;\b'),
+            (TokenType.LPAREN,     r':'),
+            (TokenType.RPAREN,     r';'),
             (TokenType.LBRACE,     r'\bp\b'),
             (TokenType.RBRACE,     r'\bq\b'),
         ]
