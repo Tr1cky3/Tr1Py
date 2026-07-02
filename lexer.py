@@ -22,6 +22,8 @@ class Token(NamedTuple):
     def tokenize(code: str) -> List['Token']:
         tokens = []
         token_patterns = [
+            (TokenType.LBRACE,     r'\bp\b'),
+            (TokenType.RBRACE,     r'\bq\b'),
             (TokenType.KEYWORD,    r'\bjika\b|\bselain\b|\bkeluaran\b'),
             (TokenType.IDENTIFIER, r'\b[a-zA-Z_][a-zA-Z0-9_]*\b'),
             (TokenType.NUMBER,     r'\b\d+\b'),
@@ -29,8 +31,6 @@ class Token(NamedTuple):
             (TokenType.ASSIGN,     r'='),
             (TokenType.LPAREN,     r':'),
             (TokenType.RPAREN,     r';'),
-            (TokenType.LBRACE,     r'\bp\b'),
-            (TokenType.RBRACE,     r'\bq\b'),
         ]
         
         master_pattern = '|'.join(f'(?P<{kind.name}>{pattern})' for kind, pattern in token_patterns)
